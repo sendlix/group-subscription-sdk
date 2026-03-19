@@ -1,6 +1,6 @@
 {
   "name": "@sendlix/group",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Sendlix Group SDK – subscribe users to mailing groups with optional Proof-of-Work bot protection.",
   "license": "Apache-2.0",
   "type": "module",
