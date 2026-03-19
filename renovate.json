@@ -1,0 +1,174 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    ":timezone(Europe/Berlin)"
+  ],
+  "schedule": [
+    "before 6am on Monday"
+  ],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "assignees": [],
+  "reviewers": [],
+  "commitMessagePrefix": "chore(deps): ",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to v{{newVersion}}",
+  "semanticCommits": "enabled",
+  "separateMinorPatch": true,
+  "separateMajorMinor": true,
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+  "packageRules": [
+    {
+      "description": "Group all non-major dependencies",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "commitMessagePrefix": "chore(deps): ",
+      "commitMessageTopic": "update dependencies"
+    },
+    {
+      "description": "Auto-merge non-major updates",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "ignoreTests": true
+    },
+    {
+      "description": "Major updates require manual review",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "commitMessagePrefix": "chore(deps): ",
+      "commitMessageAction": "update",
+      "commitMessageExtra": "to v{{newVersion}} (major)",
+      "labels": [
+        "dependencies",
+        "renovate",
+        "major-update"
+      ],
+      "automerge": false
+    },
+    {
+      "description": "DevDependencies grouping",
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "dev dependencies",
+      "commitMessagePrefix": "chore(deps-dev): "
+    },
+    {
+      "description": "TypeScript and related packages",
+      "matchPackageNames": [
+        "typescript",
+        "@types/*",
+        "ts-jest",
+        "ts-node"
+      ],
+      "groupName": "TypeScript",
+      "commitMessagePrefix": "chore(deps): ",
+      "commitMessageTopic": "TypeScript"
+    },
+    {
+      "description": "Testing packages",
+      "matchPackageNames": [
+        "jest",
+        "@types/jest",
+        "ts-jest"
+      ],
+      "groupName": "Jest",
+      "commitMessagePrefix": "chore(deps): ",
+      "commitMessageTopic": "Jest testing"
+    },
+    {
+      "description": "Linting and formatting",
+      "matchPackageNames": [
+        "@commitlint/*",
+        "husky",
+        "semantic-release",
+        "conventional-changelog-cli"
+      ],
+      "groupName": "Code quality",
+      "commitMessagePrefix": "chore(deps): ",
+      "commitMessageTopic": "code quality tools"
+    },
+    {
+      "description": "gRPC related packages",
+      "matchPackageNames": [
+        "@grpc/*",
+        "google-protobuf",
+        "grpc-tools",
+        "protoc-gen-ts"
+      ],
+      "groupName": "gRPC",
+      "commitMessagePrefix": "chore(deps): ",
+      "commitMessageTopic": "gRPC dependencies"
+    },
+    {
+      "description": "Documentation dependencies",
+      "matchFileNames": [
+        "docs/**"
+      ],
+      "matchPackageNames": [
+        "@docusaurus/*",
+        "docusaurus",
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom",
+        "clsx",
+        "prism-react-renderer"
+      ],
+      "groupName": "Documentation",
+      "commitMessagePrefix": "docs(deps): ",
+      "commitMessageTopic": "documentation dependencies",
+      "labels": [
+        "dependencies",
+        "documentation"
+      ],
+      "automerge": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "commitMessagePrefix": "fix(security): ",
+    "labels": [
+      "security",
+      "dependencies"
+    ]
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 6am on Monday"
+    ],
+    "commitMessageAction": "update",
+    "commitMessageTopic": "lock file maintenance",
+    "commitMessagePrefix": "chore(deps): "
+  },
+  "postUpdateOptions": [
+    "npmDedupe"
+  ],
+  "rangeStrategy": "bump"
+}

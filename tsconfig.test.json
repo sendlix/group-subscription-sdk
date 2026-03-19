@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["@webgpu/types", "jest", "node"],
+    "module": "commonjs",
+    "verbatimModuleSyntax": false,
+    "isolatedModules": false
+  },
+  "include": ["tests/**/*", "src/**/*"]
+}
