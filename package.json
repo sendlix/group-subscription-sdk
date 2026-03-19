@@ -1,6 +1,6 @@
 {
   "name": "@sendlix/group",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Sendlix Group SDK – subscribe users to mailing groups with optional Proof-of-Work bot protection.",
   "license": "Apache-2.0",
   "type": "module",
@@ -10,7 +10,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/sendlix/group-subscription-sdk.git"
+    "url": "git+https://github.com/sendlix/group-subscription-sdk.git"
   },
   "exports": {
     ".": {
