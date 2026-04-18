@@ -45,7 +45,7 @@
     "release": "semantic-release"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=19.2.5"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
