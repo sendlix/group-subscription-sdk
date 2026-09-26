@@ -48,8 +48,8 @@
     "react": ">=19.2.8"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/git": "^11.0.1",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.18",
     "@webgpu/types": "^0.1.71",
