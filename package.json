@@ -55,7 +55,7 @@
     "@webgpu/types": "^0.1.74",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
-    "react": "^19.3.0",
+    "react": "^19.3.1",
     "semantic-release": "^25.0.9",
     "ts-jest": "^29.4.14",
     "typescript": "^6.0.3"
